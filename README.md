@@ -20,24 +20,27 @@ Ce homelab a pour but de reproduire, sur une infrastructure virtualisée, les co
 ---
 
 ## 🏗️ Architecture du lab
-┌─────────────────────────────┐
-│ PROXMOX VE │
-│ (hyperviseur) │
-│ 192.168.1.10 (mgmt) │
-└──────────────┬──────────────┘
-│
-┌────────────────────┼────────────────────┐
-│ │ │
-┌──────▼──────┐ ┌──────▼──────┐ ┌──────▼──────┐
-│ pfSense │ │ Win Server │ │ Ubuntu Srv │
-│ (firewall) │ │ (AD/DNS/ │ │ (services) │
-│ │ │ DHCP) │ │ │
-└──────┬──────┘ └─────────────┘ └─────────────┘
-│
-┌──────▼──────┐
-│ Zabbix │
-│(supervision)│
-└─────────────┘
+
+```
+                    ┌─────────────────────────────┐
+                    │        PROXMOX VE           │
+                    │      (hyperviseur)          │
+                    │   192.168.1.10 (mgmt)       │
+                    └──────────────┬──────────────┘
+                                   │
+              ┌────────────────────┼────────────────────┐
+              │                    │                    │
+       ┌──────▼──────┐      ┌──────▼──────┐      ┌──────▼──────┐
+       │  pfSense    │      │ Win Server  │      │ Ubuntu Srv  │
+       │  (firewall) │      │  (AD/DNS/   │      │  (services) │
+       │             │      │   DHCP)     │      │             │
+       └──────┬──────┘      └─────────────┘      └─────────────┘
+              │
+       ┌──────▼──────┐
+       │   Zabbix    │
+       │(supervision)│
+       └─────────────┘
+```
 
 **Plan d'adressage** (à adapter à ton réseau) :
 
